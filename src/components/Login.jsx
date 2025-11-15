@@ -17,7 +17,7 @@ const Login = ({ setToggle }) => {
       </form>
 
         <p>Dont have a account?</p>
-        <span onClick={handleClick} className="text-blue-500 capitalize font-semibold">Register Here</span>
+        <span onClick={handleClick} className="cursor-pointer text-blue-500 capitalize font-semibold">Register Here</span>
 
     </div>
   );

@@ -10,7 +10,9 @@ const Register = ({ setToggle }) => {
       <h1>Register Form</h1>
 
       <form action="">
-        <input type="text" placeholder="Full name" />
+        <input onChange={(e) => {
+            e.target.value
+        }} type="text" placeholder="Full name" />
         <input type="text" placeholder="username" />
         <input type="text" placeholder="password" />
         <input type="submit" />
@@ -20,7 +22,7 @@ const Register = ({ setToggle }) => {
         already have an account?{" "}
         <span
           onClick={handleClick}
-          className="text-blue-500 font-semibold capitalize"
+          className="cursor-pointer text-blue-500 font-semibold capitalize"
         >
           {" "}
           Login here
