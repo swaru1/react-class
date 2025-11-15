@@ -4,22 +4,54 @@ import Register from "./components/Register";
 
 const App = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    name: "",
     email: "",
     dob: "",
-  })
+  });
 
-  console.log(formData);
-  
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({
+      name: "",
+      email: "",
+      dob: "",
+    });
+  };
 
   return (
-    <div>
+    <div className="bg-gray-400">
       <h1>App</h1>
-      <form action="">
-        <input onChange={(e)=> setFormData({...formData, name: e.target.value})} type="text" placeholder="name" />
-        <input onChange={(e)=> setFormData({...formData, email: e.target.value})} type="text" placeholder="name" />
-        <input onChange={(e)=> setFormData({...formData, dob : e.target.value})} type="text" placeholder="name" />
-        <button>Submit</button>
+      <form onSubmit={handleSubmit} action="">
+        <input
+          value={formData.name}
+          name="name"
+          onChange={handleChange}
+          type="text"
+          placeholder="name"
+        />
+        <input
+          value={formData.email}
+          name="email"
+          onChange={handleChange}
+          type="text"
+          placeholder="email"
+        />
+        <input
+          value={formData.dob}
+          name="dob"
+          onChange={handleChange}
+          type="text"
+          placeholder="dob"
+        />
+        <button className="bg-blue-400 border border-blue-500 text-white">
+          Submit
+        </button>
       </form>
     </div>
   );
