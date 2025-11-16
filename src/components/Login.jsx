@@ -1,24 +1,40 @@
 import React from "react";
 
 const Login = ({ setToggle }) => {
-
-    const handleClick = () => {
-        setToggle((prev) => !prev)
-    }
-
   return (
-    <div>
-      <h1>Login Form</h1>
+    <div className="w-100 flex flex-col gap-6 items-center">
+      <h1 className="text-xl">Login Form</h1>
 
-      <form action="">
-        <input type="text" placeholder="username" />
-        <input type="text" placeholder="password" />
-        <input type="submit" />
+      <form
+        className="flex flex-col gap-4 border border-gray-200 p-6 rounded-lg shadow-lg"
+        action=""
+      >
+        <input
+          className="border px-4 py-2 rounded-lg"
+          type="text"
+          placeholder="username"
+        />
+        <input
+          className="border px-4 py-2 rounded-lg"
+          type="password"
+          placeholder="Password"
+        />
+        <button
+          className="px-4 py-3 bg-blue-700 rounded-lg text-white"
+          type="submit"
+        >
+          Login
+        </button>
+        <p className="text-xl">
+          Don't have an account?{" "}
+          <span
+            onClick={() => setToggle((prev) => !prev)}
+            className="text-blue-600 cursor-pointer"
+          >
+            Register Here
+          </span>
+        </p>
       </form>
-
-        <p>Dont have a account?</p>
-        <span onClick={handleClick} className="cursor-pointer text-blue-500 capitalize font-semibold">Register Here</span>
-
     </div>
   );
 };
