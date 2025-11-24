@@ -1,25 +1,19 @@
-import React, { useState } from "react";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import React, { useContext } from 'react'
+import Input from './components/Input'
+import { InputContext } from './Context/InputContext'
 
 const App = () => {
-  const [toggle, setToggle] = useState(true);
-  const [usersData, setUsersData] = useState([]);
 
+  const {inpText} = useContext(InputContext)
+  
   return (
-    <div className="h-screen w-full flex gap-5 flex-col items-center justify-center">
-      <h1 className="text-2xl font-bold ">Authentication</h1>
-      {toggle ? (
-        <Login setToggle={setToggle} />
-      ) : (
-        <Register
-          setToggle={setToggle}
-          setUsersData={setUsersData}
-          usersData={usersData}
-        />
-      )}
+    <div className='bg-amber-100 p-8'>
+      this is app
+      <div className='bg-green-50 p-6'> this is input - {inpText}
+        <Input/>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
